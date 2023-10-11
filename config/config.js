@@ -12,22 +12,22 @@ module.export = {
   development: {
     username: DB_USERNAME,
     password: DB_PASSWORD,
-    database: "database_development",
-    host: "127.0.0.1",
+    database: DB_NAME,
+    host: DB_HOSTNAME,
     dialect: "mysql",
   },
   test: {
     username: DB_USERNAME,
     password: DB_PASSWORD,
-    database: "database_test",
-    host: "127.0.0.1",
+    database: DB_NAME,
+    host: DB_HOSTNAME,
     dialect: "mysql",
   },
   production: {
     username: DB_USERNAME,
     password: DB_PASSWORD,
-    database: "database_production",
-    host: "127.0.0.1",
+    database: DB_NAME,
+    host: DB_HOSTNAME,
     dialect: "mysql",
   },
 };
