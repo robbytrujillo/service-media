@@ -1,14 +1,9 @@
 // merubah file json menjadi js karena ingin memasukkan yang ada pada file .env
-require('dotenv').config();
+require("dotenv").config();
 
-const {
-  DB_USERNAME,
-  DB_PASSWORD,
-  DB_NAME,
-  DB_HOSTNAME
-} = process.env;
+const { DB_USERNAME, DB_PASSWORD, DB_NAME, DB_HOSTNAME } = process.env;
 
-module.export = {
+module.exports = {
   development: {
     username: DB_USERNAME,
     password: DB_PASSWORD,
