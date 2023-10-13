@@ -3,12 +3,14 @@ const router = express.Router();
 const isBase64 = require("is-base64");
 const base64Img = require("base64-img");
 
+const { Media } = require("../models");
+
 router.post("/", (req, res) => {
   const image = req.body.image;
 
   if (
     !isBase64(image, {
-      mineRequired: true,
+      mimeRequired: true,
     })
   ) {
     return res.status(400).json({ status: "error", message: "invalid base64" });
@@ -19,7 +21,7 @@ router.post("/", (req, res) => {
       return res.status(400).json({ status: "error", message: err.message });
     }
 
-    ("/public/images/412341234123.png");
+    //"/public/images/412341234123.png";
     const filename = filepath.split("/").pop();
 
     const media = await Media.create({ image: `image/${filename}` });
