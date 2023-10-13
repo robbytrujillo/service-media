@@ -7,11 +7,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false
+        allowNull: false,
       },
       image: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -19,12 +19,12 @@ module.exports = {
       },
       updated_at: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
       },
     });
   },
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable("media");
-  }
+  },
 };
