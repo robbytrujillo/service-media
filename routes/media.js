@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const isBase64 = require("is-base64");
 const base64Img = require("base64-img");
+const fs = require("fs"); // require fs (16102023)
 
 const { Media } = require("../models");
 
@@ -51,6 +52,17 @@ router.post("/", (req, res) => {
       },
     });
   });
+});
+
+// 16102023
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+
+  const media = await Media.findByPk(id);
+
+  if (!media) {
+    return res.status(404).json({ status: "error", message: "media not found" });
+  }
 });
 
 module.exports = router;
