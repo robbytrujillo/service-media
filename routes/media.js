@@ -63,6 +63,19 @@ router.delete("/:id", async (req, res) => {
   if (!media) {
     return res.status(404).json({ status: "error", message: "media not found" });
   }
+
+  fs.unlink(`./public/${media.image}`, async (err) => {
+    if (err) {
+      return res.status(400).json({ status: "error", message: err.message });
+    }
+
+    await media.destroy();
+
+    return res.json({
+      status: "success",
+      message: "image deleted",
+    });
+  });
 });
 
 module.exports = router;
